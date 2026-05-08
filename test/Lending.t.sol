@@ -1042,8 +1042,8 @@ contract LendingTest is BaseTest {
         MockERC20 extra = deployMockToken("EXTRA", 18);
 
         vm.prank(owner);
-        vm.expectRevert(abi.encodeWithSelector(ILendingPool.LiquidationBonusTooHigh.selector, 2_001, 2_000));
-        lending.listReserve(address(extra), _defaultIrParams(), 7_000, 7_500, 2_001, 1_000, true, true);
+        vm.expectRevert(abi.encodeWithSelector(ILendingPool.LiquidationBonusTooHigh.selector, 2_501, 2_500));
+        lending.listReserve(address(extra), _defaultIrParams(), 7_000, 7_500, 2_501, 1_000, true, true);
     }
 
     function testRevertReserveFactorTooHigh() public {

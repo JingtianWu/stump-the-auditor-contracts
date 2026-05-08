@@ -59,7 +59,7 @@ contract Lending is ILendingPool, Ownable2Step, ReentrancyGuard, Pausable {
 
     uint256 public constant MIN_HEALTH_FACTOR = 1e18;
     uint256 public constant MAX_CLOSE_FACTOR_BPS = 10_000;
-    uint256 public constant MAX_LIQ_BONUS_BPS = 2_000;
+    uint256 public constant MAX_LIQ_BONUS_BPS = 2_500;
     uint256 public constant MAX_COLLATERAL_FACTOR_BPS = 9_000;
     uint256 public constant MAX_RESERVE_FACTOR_BPS = 5_000;
     uint256 public constant MAX_ORACLE_STALENESS = 1 hours;
@@ -847,7 +847,7 @@ contract Lending is ILendingPool, Ownable2Step, ReentrancyGuard, Pausable {
         if (liquidationBonusBps > MAX_LIQ_BONUS_BPS) {
             revert LiquidationBonusTooHigh(liquidationBonusBps, MAX_LIQ_BONUS_BPS);
         }
-        if (uint256(liquidationThresholdBps) * (BPS + liquidationBonusBps) >= BPS * BPS) {
+        if (uint256(liquidationThresholdBps) * (BPS + liquidationBonusBps) > BPS * BPS) {
             revert LiquidationBonusTooHigh(liquidationBonusBps, MAX_LIQ_BONUS_BPS);
         }
         if (reserveFactorBps > MAX_RESERVE_FACTOR_BPS) {
