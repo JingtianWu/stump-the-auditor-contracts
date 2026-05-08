@@ -6,7 +6,7 @@ Lending (`src/Lending/Lending.sol`)
 
 ## GitHub Repo URL
 
-https://github.com/JingtianWu/stump-the-auditor-contracts/tree/codex/stump-challenge
+https://github.com/JingtianWu/stump-the-auditor-contracts
 
 ## Lite Scan URL
 
